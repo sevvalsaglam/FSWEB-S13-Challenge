@@ -1,7 +1,7 @@
 package org.example;
 
 public enum Plan {
-    BASIC("Şevval",26);
+    BASIC();
     private String name;
     private int price;
 
