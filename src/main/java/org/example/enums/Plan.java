@@ -1,7 +1,7 @@
-package org.example;
+package org.example.enums;
 
 public enum Plan {
-    BASIC();
+    BASIC("asdfgh", 1234);
     private String name;
     private int price;
 
