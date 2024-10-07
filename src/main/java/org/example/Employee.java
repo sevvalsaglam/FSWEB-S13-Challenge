@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Arrays;
+
 public class Employee {
    private long id;
    private String fullName;
@@ -37,14 +39,30 @@ public class Employee {
 
 
 
-   public String addHealthPlan(int index, String name){
-       for(int i=0; i<healthPlans.length; i++){
-           if(healthPlans[i]== null){
-               healthPlans[i]=name;
-           }else {
-               System.out.println("index dolu");
+   public void addHealthPlan(int index, String name){
+
+       if (index < 0 || index >= healthPlans.length) {
+           System.out.println("Hata: İlgili index değeri dizi sınırlarının dışında.");
+       } else {
+           // Eğer index boşsa name değişkenini ilgili indekse atıyoruz
+           if (healthPlans[index] == null) {
+               healthPlans[index] = name;
+               System.out.println("Sağlık planı " + name + " başarıyla " + index + " indeksine eklendi.");
+           } else {
+               // Eğer ilgili index doluysa, uyarı mesajı gösteriyoruz
+               System.out.println("Hata: İlgili index dolu, yeni sağlık planı eklenemedi.");
            }
        }
-       return name;
    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", fullName='" + fullName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", healthPlans=" + Arrays.toString(healthPlans) +
+                '}';
+    }
 }

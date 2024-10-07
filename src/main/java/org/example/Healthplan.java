@@ -3,16 +3,16 @@ package org.example;
 import org.example.enums.Plan;
 
 public class Healthplan {
-    private long id;
+    private int id;
     private String name;
     private Plan plan;
 
-    public Healthplan(long id, String name, Plan plan){
+    public Healthplan(int id, String name, Plan plan){
         this.id=id;
         this.name=name;
         this.plan=plan;
     }
-    public long getId() {
+    public int getId() {
         return this.id;
     }
 
@@ -24,15 +24,25 @@ public class Healthplan {
         return this.plan;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     public void setName(String name) {
         this.name = name;
+
     }
 
     public void setPlan(Plan plan) {
         this.plan = plan;
+    }
+
+    @Override
+    public String toString() {
+        return "Healthplan{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", plan=" + plan +
+                '}';
     }
 }

@@ -1,10 +1,12 @@
 package org.example;
 
+import java.util.Arrays;
+
 public class Company {
     private long id;
     private String name;
     private double giro;
-    String[] developerNames;
+    private String[] developerNames;
 
     public Company(long id, String name, double giro, String[] developerNames ){
         this.id=id;
@@ -53,15 +55,25 @@ public class Company {
         this.developerNames = developerNames;
     }
 
-    public String addEmployee(int index, String name){
-        for(int i=0; i<developerNames.length; i++){
-            if(developerNames[i]==null){
-                developerNames[i]=name;
-            }else {
-                System.out.println("index dolu");
-            }
+    public void addEmployee(int index, String name){
+       if(index<0 || index>=developerNames.length){
+           System.out.println("Hata: İlgili index değeri dizi sınırlarının dışında.");
+       }else {
+           if(developerNames[index] == null){
+               developerNames[index]= name;
+           }else {
+               System.out.println("Hata: İlgili index dolu, yeni sağlık planı eklenemedi.");
+           }
+       }
+    }
 
-        }
-        return name;
+    @Override
+    public String toString() {
+        return "Company{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", giro=" + giro +
+                ", developerNames=" + Arrays.toString(developerNames) +
+                '}';
     }
 }
